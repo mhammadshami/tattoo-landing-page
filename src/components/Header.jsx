@@ -7,6 +7,7 @@ import NavMobile from "./NavMobile";
 import Socials from "./Socials";
 // import icons
 import { TiThMenuOutline } from "react-icons/ti";
+
 const Header = () => {
   // destructure header data
   const { logo } = headerData;
@@ -24,10 +25,38 @@ const Header = () => {
   return (
     <header
       className={`${
-        isActive ? "bg-red-500 h-[100px] lg:h-[110px]" : "bg-green-500"
-      } fixed left-0 right-0 top-0 z-10 max-w-[1920px] w-full mx-auto transition-all duration-300`}
+        isActive ? "h-[100px] lg:h-[110px]" : "h-[120px] lg:h-[150px] "
+      } fixed left-0 right-0 bg-white z-10 max-w-[1920px] w-full mx-auto transition-all duration-300 `}
     >
-      Header
+      <div className="flex justify-between items-center h-full pl-[50px] pr-[60px]">
+        {/* logo */}
+        <a href="/">
+          <img src={logo} className="w-[188px] h-[90px]" alt="" />
+        </a>
+        {/* nav - initially hidden - show on desktop */}
+        <div className="hidden xl:flex ">
+          <Nav />
+        </div>
+        {/* nav menu btn - showing by default - hidden on desktop mode */}
+        <div
+          onClick={() => setNavMobile(!navMobile)}
+          className="xl:hidden absolute right-[5%] bg-dark text-white p-2 rounded-md cursor-pointer"
+        >
+          <TiThMenuOutline className="text-3xl " />
+        </div>
+        {/* nav mobile - showing by default - hidden on desktop */}
+        <div
+          className={`${navMobile ? "max-h-full" : "max-h-0"} ${
+            isActive ? "top-[33px] lg:top-[110px]" : "top-[0px] lg:top-[150px]"
+          } fixed bg-white w-full h-full left-0 -z-10 transition-all duration-300`}
+        >
+          <NavMobile />
+        </div>
+        {/* social icons - initially hidden - show on desktop */}
+        <div className="hidden xl:flex ">
+          <Socials />
+        </div>
+      </div>
     </header>
   );
 };
