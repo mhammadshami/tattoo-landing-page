@@ -4,10 +4,10 @@ import GalleryImg1 from '../src/img/gallery/1.png';
 import GalleryImg2 from '../src/img/gallery/2.png';
 import GalleryImg3 from '../src/img/gallery/3.png';
 import GalleryImg4 from '../src/img/gallery/4.png';
-import GalleryImg5 from '../src/img/gallery/5.png';
+import GalleryImg5 from '../src/img/gallery/4.png';
 import GalleryImg6 from '../src/img/gallery/6.png';
 import GalleryImg7 from '../src/img/gallery/7.png';
-import GalleryImg8 from '../src/img/gallery/8.png';
+import GalleryImg8 from '../src/img/gallery/7.png';
 import QuoteImg from '../src/img/testimonial/quote.svg';
 // import icons
 import { GrFacebookOption } from 'react-icons/gr';
