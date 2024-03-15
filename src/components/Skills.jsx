@@ -11,6 +11,11 @@ import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
 
 const Skills = () => {
+    // full body tattoo state 
+    const [fullBody, setFullBody] = useState(0);
+    // safely pricing state
+    const [piercing, setPiercing] = useState(0);
+
   // destructure useInView hook
   const { ref, inView } = useInView({
     threshold: 0.2,
@@ -22,12 +27,14 @@ const Skills = () => {
         if (fullBody < 90) {
           setFullBody(fullBody + 1);
         }
-      })
+        if (fullBody < 80) {
+          setPiercing(piercing + 1)
+        }
+      }, 50)
+    } else {
+      setFullBody(0)
     }
-  }, [inView, fullBody]);
-
-  // full body tattoo state 
-  const [fullBody, setFullBody] = useState(0);
+  }, [inView, fullBody, piercing]);
 
   // circular progressbar styles
   const styles = {
@@ -43,11 +50,32 @@ const Skills = () => {
     },
   };
   return (
-    <section ref={ref} className="section bg-pink-200">
+    <section ref={ref} className="section">
       <div className="container mx-auto">
-        <div>
-          <div>
-            <CircularProgressbar strokeWidth={1} value={fullBody} styles={styles}/>
+        <div className="bg-pink-200 flex flex-col justify-between items-center gap-y-12">
+          {/* circular item */}
+          <div className="w-[150px] lg:w-[275px] flex flex-col items-center gap-y-6">
+            <CircularProgressbar strokeWidth={1} value={fullBody} styles={styles} text={`${fullBody}%`}/>
+            {/* text */}
+            <div className="uppercase font-light tracking-[1.2px] text-center ">Full Body Tattoo</div>
+          </div>
+          {/* circular item */}
+          <div className="w-[150px] lg:w-[275px] flex flex-col items-center gap-y-6">
+            <CircularProgressbar strokeWidth={1} value={piercing} styles={styles} text={`${piercing}%`}/>
+            {/* text */}
+            <div className="uppercase font-light tracking-[1.2px] text-center ">Safely Piercing</div>
+          </div>
+          {/* circular item */}
+          <div className="w-[150px] lg:w-[275px] flex flex-col items-center gap-y-6">
+            <CircularProgressbar strokeWidth={1} value={fullBody} styles={styles} text={`${fullBody}%`}/>
+            {/* text */}
+            <div className="uppercase font-light tracking-[1.2px] text-center ">Full Body Tattoo</div>
+          </div>
+          {/* circular item */}
+          <div className="w-[150px] lg:w-[275px] flex flex-col items-center gap-y-6">
+            <CircularProgressbar strokeWidth={1} value={fullBody} styles={styles} text={`${fullBody}%`}/>
+            {/* text */}
+            <div className="uppercase font-light tracking-[1.2px] text-center ">Full Body Tattoo</div>
           </div>
         </div>
       </div>
